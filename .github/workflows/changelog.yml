@@ -1,0 +1,16 @@
+name: Changelog
+
+on: [ push ]
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v4
+    - name: Runs Conventional Changelog Action
+      uses: TriPSs/conventional-changelog-action@v5
+      with:
+        output-file: "false"
+        github-token: ${{ secrets.GITHUB_TOKEN }}
